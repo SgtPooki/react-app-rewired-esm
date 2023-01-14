@@ -18,7 +18,13 @@
     "start": "yarn --cwd 'test/react-app' start",
     "teardown": "yarn unlink && yarn clean && yarn --cwd 'test/react-app' clean",
     "test": "yarn --cwd 'test/react-app' test",
-    "deps": "yarn && yarn --cwd 'test/react-app'"
+    "deps": "yarn && yarn --cwd 'test/react-app'",
+    "lint": "eslint \"**/*.js\"",
+    "prettier": "prettier --write \"**/*.js\"",
+    "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
+    "pre-commit": "lint-staged"
   },
   "peerDependencies": {
     "react-scripts": ">=5.0.0"
@@ -27,7 +33,17 @@
     "semver": "^7.3.8"
   },
   "devDependencies": {
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-unicorn": "^45.0.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "pinst": "^3.0.0",
+    "prettier": "^2.8.3",
     "react-scripts": "^5.0.1"
+  },
+  "lint-staged": {
+    "*.js": "prettier --write"
   },
   "repository": {
     "type": "git",
