@@ -1,7 +1,11 @@
-const path = require("path");
-const paths = require("./paths");
-const overrides = require("../config-overrides");
-const rewireJestConfig = require("../scripts/utils/rewireJestConfig");
+import path from "node:path";
+import paths from "./paths.js";
+import overrides from "../config-overrides.js";
+import rewireJestConfig from "../scripts/utils/rewireJestConfig.cjs";
+
+import { createRequire } from "node:module";
+export const require = createRequire(import.meta.url);
+
 const createJestConfigPath = `${paths.scriptVersion}/scripts/utils/createJestConfig`;
 
 // hide overrides in package.json for CRA's original createJestConfig
@@ -37,4 +41,4 @@ if (paths.configOverridesIndex > -1) {
   process.argv.splice(paths.configOverridesIndex, 2);
 }
 
-module.exports = require(createJestConfigPath);
+export default require(createJestConfigPath);

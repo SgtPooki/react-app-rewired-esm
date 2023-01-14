@@ -1,4 +1,4 @@
-const { scriptVersion } = require("./paths");
+const { scriptVersion } = require("./paths.cjs");
 
 const dependRequireResolve = (id) =>
   require.resolve(id, { paths: [scriptVersion] });

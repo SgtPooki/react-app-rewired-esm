@@ -1,5 +1,8 @@
 #!/usr/bin/env node
-const { dependRequire } = require("../scripts/utils/dependRequire");
+import { createRequire } from "node:module";
+export const require = createRequire(import.meta.url);
+
+const { dependRequire } = require("../scripts/utils/dependRequire.cjs");
 var spawn = dependRequire("react-dev-utils/crossSpawn");
 const args = process.argv.slice(2);
 

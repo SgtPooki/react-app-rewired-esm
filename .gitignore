@@ -36,6 +36,7 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+.DS_Store
 build/*
 .idea
 
@@ -47,3 +48,10 @@ build/*
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+test/react-app/.pnp.*
+test/react-app/.yarn/*
+!test/react-app/.yarn/patches
+!test/react-app/.yarn/plugins
+!test/react-app/.yarn/releases
+!test/react-app/.yarn/sdks
+!test/react-app/.yarn/versions

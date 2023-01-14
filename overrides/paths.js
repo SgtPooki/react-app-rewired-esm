@@ -1,7 +1,11 @@
-const paths = require("../scripts/utils/paths");
-const overrides = require("../config-overrides");
+import overrides from "../config-overrides.js";
 
-const pathsConfigPath = `${paths.scriptVersion}/config/paths.js`;
+import { createRequire } from "node:module";
+export const require = createRequire(import.meta.url);
+
+const paths = require("../scripts/utils/paths.cjs");
+
+const pathsConfigPath = `${paths.scriptVersion}/config/paths`;
 const pathsConfig = require(pathsConfigPath);
 
 // extend paths with overrides
@@ -14,4 +18,4 @@ const extendedPaths = Object.assign(
 // override paths in memory
 require.cache[require.resolve(pathsConfigPath)].exports = extendedPaths;
 
-module.exports = require(pathsConfigPath);
+export default require(pathsConfigPath);

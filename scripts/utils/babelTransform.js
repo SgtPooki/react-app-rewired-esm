@@ -1,4 +1,7 @@
-const { dependRequire, dependRequireResolve } = require("./dependRequire");
+import { createRequire } from "node:module";
+export const require = createRequire(import.meta.url);
+
+const { dependRequire, dependRequireResolve } = require("./dependRequire.cjs");
 
 const babelJestMd = dependRequire("babel-jest");
 const babelJest = babelJestMd.__esModule ? babelJestMd.default : babelJestMd;
@@ -11,12 +14,12 @@ const hasJsxRuntime = (() => {
   try {
     require.resolve("react/jsx-runtime");
     return true;
-  } catch (e) {
+  } catch {
     return false;
   }
 })();
 
-module.exports = babelJest.createTransformer({
+export default babelJest.createTransformer({
   presets: [
     [
       dependRequireResolve("babel-preset-react-app"),

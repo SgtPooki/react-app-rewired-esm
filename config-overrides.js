@@ -1,8 +1,13 @@
-const { paths } = require("./");
+import { createRequire } from "node:module";
+export const require = createRequire(import.meta.url);
+
+const { paths } = require("./index.cjs");
 // load environment variables from .env files
 // before overrides scripts are read
 require(paths.scriptVersion + "/config/env");
-const override = require(paths.configOverrides);
+
+let override = await import(paths.configOverrides + ".js");
+override = override.default || override;
 
 const webpack =
   typeof override === "function"
@@ -27,7 +32,7 @@ const jest = override.jest || ((config) => config);
 const pathsOverride = override.paths || ((paths, env) => paths);
 
 // normalized overrides functions
-module.exports = {
+export default {
   webpack,
   devServer,
   jest,

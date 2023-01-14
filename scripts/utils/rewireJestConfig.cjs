@@ -1,19 +1,19 @@
 "use strict";
 
-const path = require("path");
-const paths = require("./paths");
+const path = require("node:path");
+const paths = require("./paths.cjs");
 
 module.exports = (config) => {
-  Object.keys(config.transform).forEach((key) => {
+  for (const key of Object.keys(config.transform)) {
     if (config.transform[key].endsWith("babelTransform.js")) {
       config.transform[key] = path.resolve(__dirname + "/babelTransform.js");
     }
-  });
+  }
   const overrides = Object.assign({}, require(paths.appPackageJson).jest);
 
   // Jest configuration in package.json will be added to the the default config
-  Object.keys(overrides).forEach((key) => {
-    //We don't overwrite the default config, but add to each property if not a string
+  for (const key of Object.keys(overrides)) {
+    // We don't overwrite the default config, but add to each property if not a string
     if (key in config) {
       if (
         typeof overrides[key] === "string" ||
@@ -29,6 +29,6 @@ module.exports = (config) => {
     } else {
       config[key] = overrides[key];
     }
-  });
+  }
   return config;
 };

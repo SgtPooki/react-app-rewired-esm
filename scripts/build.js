@@ -1,12 +1,15 @@
 process.env.NODE_ENV = "production";
 
-const { scriptVersion } = require("./utils/paths");
+import paths from "./utils/paths.cjs";
 
 // override paths in memory
-require("../overrides/paths");
+await import("../overrides/paths.js");
 
 // override config in memory
-require("../overrides/webpack");
+await import("../overrides/webpack.js");
+
+import { createRequire } from "node:module";
+export const require = createRequire(import.meta.url);
 
 // run original script
-require(`${scriptVersion}/scripts/build`);
+require(`${paths.scriptVersion}/scripts/build`);

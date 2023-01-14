@@ -1,5 +1,12 @@
 extends:
   - "plugin:unicorn/recommended"
   - "prettier"
+env:
+  node: true
 rules:
+  no-undef: error
   unicorn/prevent-abbreviations: off
+  unicorn/filename-case: off
+  unicorn/prefer-spread: off
+  unicorn/switch-case-braces: off
+  unicorn/no-null: off

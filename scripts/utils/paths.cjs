@@ -1,6 +1,5 @@
-import path from "node:path";
-import fs from "node:fs";
-import { createRequire } from "module";
+const path = require("node:path");
+const fs = require("node:fs");
 
 // try to detect if user is using a custom scripts version
 let custom_scripts = process.env.REACT_SCRIPTS_VERSION || false;
@@ -34,7 +33,7 @@ const modulePath = path.join(
 
 const paths = require(modulePath + "/config/paths");
 
-export default Object.assign(
+module.exports = Object.assign(
   {
     scriptVersion: modulePath,
     configOverrides: config_overrides,

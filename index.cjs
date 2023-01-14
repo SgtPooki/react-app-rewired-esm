@@ -1,4 +1,4 @@
-const paths = require("./scripts/utils/paths");
+const paths = require("./scripts/utils/paths.cjs");
 
 function deprecate(helper) {
   throw new Error(

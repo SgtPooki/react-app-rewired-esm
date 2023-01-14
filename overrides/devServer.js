@@ -1,11 +1,14 @@
-const { scriptVersion } = require("../scripts/utils/paths");
-const overrides = require("../config-overrides");
+import paths from "../scripts/utils/paths.cjs";
+import overrides from "../config-overrides.js";
 
-const devServerConfigPath = `${scriptVersion}/config/webpackDevServer.config.js`;
+import { createRequire } from "node:module";
+export const require = createRequire(import.meta.url);
+
+const devServerConfigPath = `${paths.scriptVersion}/config/webpackDevServer.config.js`;
 const devServerConfig = require(devServerConfigPath);
 
 // override config in memory
 require.cache[require.resolve(devServerConfigPath)].exports =
   overrides.devServer(devServerConfig, process.env.NODE_ENV);
 
-module.exports = require(devServerConfigPath);
+export default require(devServerConfigPath);

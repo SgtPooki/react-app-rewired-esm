@@ -12,15 +12,15 @@
     "react-app-rewired": "./bin/index.js"
   },
   "scripts": {
-    "build": "yarn --cwd 'test/react-app' build",
+    "build": "cd \"test/react-app\" && yarn build",
     "clean": "rm -rf node_modules",
-    "setup": "yarn deps && yarn link && yarn --cwd 'test/react-app' link 'react-app-rewired'",
-    "start": "yarn --cwd 'test/react-app' start",
-    "teardown": "yarn unlink && yarn clean && yarn --cwd 'test/react-app' clean",
-    "test": "yarn --cwd 'test/react-app' test",
-    "deps": "yarn && yarn --cwd 'test/react-app'",
-    "lint": "eslint \"**/*.js\"",
-    "prettier": "prettier --write \"**/*.js\"",
+    "setup": "yarn deps && yarn link && cd \"test/react-app\" && yarn link \"react-app-rewired\"",
+    "start": "cd \"test/react-app\" && yarn start",
+    "teardown": "yarn unlink && yarn clean && cd \"test/react-app\" && yarn clean",
+    "test": "cd \"test/react-app\" && yarn test",
+    "deps": "yarn && cd \"test/react-app\" && yarn",
+    "lint": "eslint \"**/*.{js,cjs}\"",
+    "prettier": "prettier --write \"**/*.{js,cjs}\"",
     "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
@@ -43,7 +43,7 @@
     "react-scripts": "^5.0.1"
   },
   "lint-staged": {
-    "*.js": "prettier --write"
+    "*.{js,cjs}": "prettier --write"
   },
   "repository": {
     "type": "git",
@@ -51,7 +51,7 @@
   },
   "license": "MIT",
   "files": [
-    "/index.js",
+    "/index.cjs",
     "/config-overrides.js",
     "/assets",
     "/bin",
