@@ -9,12 +9,12 @@
     "yarn": ">=3.2"
   },
   "bin": {
-    "react-app-rewired": "./bin/index.js"
+    "react-app-rewired-esm": "./bin/index.js"
   },
   "scripts": {
     "build": "cd \"test/react-app\" && yarn build",
     "clean": "rm -rf node_modules",
-    "setup": "yarn deps && yarn link && cd \"test/react-app\" && yarn link \"react-app-rewired\"",
+    "setup": "yarn deps && yarn link && cd \"test/react-app\" && yarn link \"react-app-rewired-esm\"",
     "start": "cd \"test/react-app\" && yarn start",
     "teardown": "yarn unlink && yarn clean && cd \"test/react-app\" && yarn clean",
     "test": "cd \"test/react-app\" && yarn test",
