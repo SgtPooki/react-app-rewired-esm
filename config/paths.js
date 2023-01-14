@@ -1,1 +1,1 @@
-module.exports = require('../overrides/paths');
+module.exports = require("../overrides/paths");

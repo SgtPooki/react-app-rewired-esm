@@ -1,6 +1,4 @@
-const {
-  override,
-} = require('customize-cra');
+const { override } = require("customize-cra");
 
 // override
 module.exports = {
@@ -9,19 +7,19 @@ module.exports = {
 
     (config) => {
       return config;
-    },
+    }
   ),
 
-  jest: config => {
+  jest: (config) => {
     return config;
   },
 
-  devServer: configFunction => (proxy, allowedHost) => {
+  devServer: (configFunction) => (proxy, allowedHost) => {
     const config = configFunction(proxy, allowedHost);
     return config;
   },
 
   paths: (paths, env) => {
     return paths;
-  }
+  },
 };

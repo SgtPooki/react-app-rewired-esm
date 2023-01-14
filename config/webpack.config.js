@@ -1,4 +1,4 @@
 // override paths in memory
-require('../overrides/paths');
+require("../overrides/paths");
 
-module.exports = require('../overrides/webpack');
+module.exports = require("../overrides/webpack");
