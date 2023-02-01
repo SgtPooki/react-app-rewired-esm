@@ -19,7 +19,6 @@
     "deps": "yarn && cd \"test/react-app\" && yarn",
     "lint": "eslint \"*.{js,cjs}\" \"{bin,config,overrides,scripts}/**/*.{js,cjs}\"",
     "prettier": "prettier --write \"*.{js,cjs}\" \"{bin,config,overrides,scripts}/**/*.{js,cjs}\"",
-    "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
     "pre-commit": "lint-staged"
