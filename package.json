@@ -4,7 +4,7 @@
   "description": "Tweak the create-react-app webpack config(s) without using 'eject' and without creating a fork of the react-scripts",
   "type": "module",
   "engines": {
-    "node": ">=16.6",
+    "node": ">=16.6"
   },
   "bin": {
     "react-app-rewired-esm": "./bin/index.js"
