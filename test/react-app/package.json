@@ -9,9 +9,9 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
+    "start": "react-app-rewired-esm start",
+    "build": "react-app-rewired-esm build",
+    "test": "react-app-rewired-esm test",
     "eject": "react-scripts eject",
     "clean": "rm -rf node_modules"
   },

@@ -1,8 +1,9 @@
 {
-  "name": "react-app-rewired-esm",
-  "version": "3.0.0",
+  "name": "@sgtpooki/react-app-rewired-esm",
+  "version": "2.2.1",
   "description": "Tweak the create-react-app webpack config(s) without using 'eject' and without creating a fork of the react-scripts",
   "type": "module",
+  "private": false,
   "engines": {
     "node": ">=16.6"
   },
@@ -10,18 +11,15 @@
     "react-app-rewired-esm": "./bin/index.js"
   },
   "scripts": {
-    "build": "cd \"test/react-app\" && yarn build",
+    "build": "cd \"test/react-app\" && npm run build",
     "clean": "rm -rf node_modules",
-    "setup": "yarn deps && yarn link && cd \"test/react-app\" && yarn link \"react-app-rewired-esm\"",
-    "start": "cd \"test/react-app\" && yarn start",
-    "teardown": "yarn unlink && yarn clean && cd \"test/react-app\" && yarn clean",
-    "test": "cd \"test/react-app\" && yarn test",
-    "deps": "yarn && cd \"test/react-app\" && yarn",
+    "setup": "npm run deps && npm link && cd \"test/react-app\" && npm link \"@sgtpooki/react-app-rewired-esm\"",
+    "start": "cd \"test/react-app\" && npm run start",
+    "teardown": "npm run unlink && npm run clean && cd \"test/react-app\" && npm run clean",
+    "test": "cd \"test/react-app\" && npm run test",
+    "deps": "npm install && cd \"test/react-app\" && npm install",
     "lint": "eslint \"*.{js,cjs}\" \"{bin,config,overrides,scripts}/**/*.{js,cjs}\"",
-    "prettier": "prettier --write \"*.{js,cjs}\" \"{bin,config,overrides,scripts}/**/*.{js,cjs}\"",
-    "prepack": "pinst --disable",
-    "postpack": "pinst --enable",
-    "pre-commit": "lint-staged"
+    "prettier": "prettier --write \"*.{js,cjs}\" \"{bin,config,overrides,scripts}/**/*.{js,cjs}\""
   },
   "peerDependencies": {
     "react-scripts": ">=5.0.0"
@@ -33,9 +31,6 @@
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-unicorn": "^45.0.2",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.1.0",
-    "pinst": "^3.0.0",
     "prettier": "^2.8.3",
     "react-scripts": "^5.0.1"
   },
@@ -44,7 +39,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crux153/react-app-rewired-esm"
+    "url": "git+https://github.com/SgtPooki/react-app-rewired-esm"
   },
   "license": "MIT",
   "files": [
